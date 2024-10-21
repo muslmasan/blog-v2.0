@@ -7,6 +7,7 @@ djangorestframework-simplejwt
 PyJWT
 Pillow
 pytz
+freeze
 sqlparse
 psycopg2-binary
 python-dotenv
