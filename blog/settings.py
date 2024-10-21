@@ -29,7 +29,8 @@ SECRET_KEY =  os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower() == "True"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = ["*"]
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':(
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -103,7 +104,7 @@ DATABASES = {
 
 database_url = os.environ.get("DATABASE_URL")
 
-DATABASES["default"] =  dj_database_url.parse(database_url)
+DATABASES["default"] =  dj_database_url.parse('postgresql://devyard_db_user:v6mqnufQscMyYYGWKfSZTU7JHM00oLul@dpg-csb42aij1k6c73d14u8g-a.oregon-postgres.render.com/devyard_db')
 #postgresql://devyard_db_user:v6mqnufQscMyYYGWKfSZTU7JHM00oLul@dpg-csb42aij1k6c73d14u8g-a.oregon-postgres.render.com/devyard_db
 
 # Password validation
