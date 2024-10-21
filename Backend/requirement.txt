@@ -5,6 +5,7 @@ djangorestframework
 django-ratelimit
 djangorestframework-simplejwt
 PyJWT
+Pillow
 pytz
 sqlparse
 psycopg2-binary

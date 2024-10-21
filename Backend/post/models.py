@@ -19,3 +19,16 @@ class Post(models.Model):
 def set_slug(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = slugify(instance.title)
+        while Post.objects.filter(slug=instance.slug).exists():
+            instance.slug += f"-{Post.objects.filter(slug__startswith=instance.slug).count()}"
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='static/profile_pics/', default='default.jpg')
+    bio = models.TextField()
+    
+
+    def __str__(self):
+        return f'{self.user.username} Profile'
+
